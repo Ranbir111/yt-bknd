@@ -57,4 +57,4 @@ def downloadaudio():
         except Exception as e:
             return f"An error occurred: {str(e)}"
 
-# app.run(debug=False, host='0.0.0.0')
+app.run()
