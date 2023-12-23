@@ -37,9 +37,9 @@ def downloadvideo():
             yt = YouTube(video_url)
             stream = yt.streams.get_highest_resolution()
             # path_to_download = str(os.path.join(Path.home(), 'Videos'))
-            path_to_download = str('/videos')
+            path_to_download = str('/')
             stream.download(path_to_download)  # Save the video in the 'downloads' folder
-            return jsonify({"success":"true","path":stream.get_file_path()+"/videos/"+stream.default_filename})
+            return jsonify({"success":"true","path":stream.get_file_path()+stream.default_filename})
         except Exception as e:
             return f"An error occurred: {str(e)}"
 
@@ -53,8 +53,8 @@ def downloadaudio():
             yt = YouTube(video_url)
             stream = yt.streams.filter(only_audio=True)
             # path_to_download = str(os.path.join(Path.home(), 'Music'))
-            path_to_download = str('/musics')
+            path_to_download = str('/')
             stream[0].download(path_to_download)  # Save the video in the 'downloads' folder
-            return jsonify({"success":"true","path":stream.get_file_path()+"/musics/"+stream.default_filename})
+            return jsonify({"success":"true","path":stream.get_file_path()+stream.default_filename})
         except Exception as e:
             return f"An error occurred: {str(e)}"
